@@ -1,0 +1,18 @@
+body {
+  margin: 0px;
+}
+@font-face {
+  font-family: 'Exo';
+  src: url('../../assets/Exo2.0-Thin.otf');
+}
+.app {
+  background-image: url('../../assets/Shadow.png'), url('../../assets/Pattern.png');
+  background-size: cover, auto;
+  height: 100vh;
+  font-family: Exo;
+  color: white;
+}
+.title {
+  margin: 0px;
+  text-align: center;
+}
