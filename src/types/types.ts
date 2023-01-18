@@ -18,12 +18,7 @@ export interface CardComponent {
   data: card,
 }
 
-export interface ICardInner {
-  data: card,
-  type: cardState | 'disabled',
-}
-
-export interface ICardWeight {
+export interface ICard {
   data: card,
   type: cardState | 'disabled',
   cardHover?: boolean,

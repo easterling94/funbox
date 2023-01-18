@@ -1,10 +1,10 @@
 import styles from './card.module.scss';
-import { CardComponent, ICardWeight, ICardInner } from '../../types/types';
+import { CardComponent, ICard } from '../../types/types';
 import { FC } from 'react';
 import { useState } from 'react';
 import { cardState } from '../../types/types';
 
-const CardInner: FC<ICardInner> = ({ data, type }) => {
+const CardInner: FC<ICard> = ({ data, type, cardHover, initialHover }) => {
   return (
     <section
       className={
@@ -13,7 +13,11 @@ const CardInner: FC<ICardInner> = ({ data, type }) => {
           : styles.cardDescriptionDisabled
       }
     >
-      <p className={styles.textDefault}>{}Сказочное заморское яство</p>
+      {cardHover && !initialHover && type === 'selected' ? (
+        <p className={styles.textDefaultHover}>Котэ не одобряет?</p>
+      ) : (
+        <p className={styles.textDefault}>Сказочное заморское яство</p>
+      )}
       <h2 className={styles.title}>{data.title}</h2>
       <h3 className={styles.subtitle}>{data.subtitle}</h3>
       <ul className={styles.description}>
@@ -29,14 +33,18 @@ const CardInner: FC<ICardInner> = ({ data, type }) => {
   );
 };
 
-const CardWeight: FC<ICardWeight> = ({ data, type }) => {
+const CardWeight: FC<ICard> = ({ data, type, cardHover, initialHover }) => {
   return (
     <div
       className={
         type === 'default'
-          ? styles.weightStateDefault
+          ? cardHover && !initialHover
+            ? styles.weightStateDefaultHover
+            : styles.weightStateDefault
           : type === 'selected'
-          ? styles.weightStateSelected
+          ? cardHover && !initialHover
+            ? styles.weightStateSelectedHover
+            : styles.weightStateSelected
           : type === 'disabled'
           ? styles.weightStateDisabled
           : ''
@@ -105,7 +113,12 @@ export const Card: FC<CardComponent> = ({ data }) => {
             onMouseEnter={handeOnMouseEnter}
             onMouseLeave={handeOnMouseLeave}
           >
-            <CardInner data={data} type='default' />
+            <CardInner
+              data={data}
+              type='default'
+              cardHover={cardHover}
+              initialHover={initialHover}
+            />
             <CardWeight
               data={data}
               type='default'
@@ -132,7 +145,12 @@ export const Card: FC<CardComponent> = ({ data }) => {
             onMouseEnter={handeOnMouseEnter}
             onMouseLeave={handeOnMouseLeave}
           >
-            <CardInner data={data} type='selected' />
+            <CardInner
+              data={data}
+              type='selected'
+              cardHover={cardHover}
+              initialHover={initialHover}
+            />
             <CardWeight
               data={data}
               type='selected'

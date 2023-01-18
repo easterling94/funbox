@@ -45,6 +45,13 @@
   font-size: 16px;
   line-height: 19px;
 }
+.textDefaultHover {
+  @include cardText();
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+  color: #E62E7A;
+}
 .title {
   @include cardText();
   font-weight: 700;
