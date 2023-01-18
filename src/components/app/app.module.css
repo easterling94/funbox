@@ -3,20 +3,27 @@ body {
 }
 @font-face {
   font-family: 'Exo';
-  src: url('../../assets/Exo2.0-Thin.otf');
+  src: url('../../assets/general/Exo2.0-Thin.otf');
 }
 .app {
-  background-image: url('../../assets/Shadow.png'), url('../../assets/Pattern.png');
+  background-image: url('../../assets/general/Shadow.png'), url('../../assets/general/Pattern.png');
   background-size: cover, auto;
   height: 100vh;
   font-family: Exo;
   color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 .title {
   margin: 0px;
   text-align: center;
+  font-weight: normal;
+  margin-bottom: 20px;
 }
 .cards {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
+  margin: 0px 15%;
 }

@@ -1,0 +1,129 @@
+@mixin cardStyle {
+  font-family: 'Trebuchet MS', sans-serif;
+  height: 480px;
+  width: 320px;
+  color: #666666;
+  position: relative;
+  cursor: pointer;
+}
+.cardStateDefault {
+  @include cardStyle();
+  background-image: url('../../assets/default/Back.png');
+}
+.cardStateDefaultHover {
+  @include cardStyle();
+  background-image: url('../../assets/default-hover/Back.png');
+}
+.cardStateSelected {
+  @include cardStyle();
+  background-image: url('../../assets/selected/Back.png');
+}
+.cardStateSelectedHover {
+  @include cardStyle();
+  background-image: url('../../assets/selected-hover/Back.png');
+}
+.cardStateDisabled {
+  @include cardStyle();
+  background-image: url('../../assets/disabled/Back.png');
+  cursor: not-allowed;
+  user-select: none;
+}
+.cardDescriptionNotDisabled {
+  padding: 20px 50px;
+}
+.cardDescriptionDisabled {
+  padding: 20px 50px;
+  opacity: 0.5;
+}
+@mixin cardText {
+  margin: 0px;
+  font-style: normal;
+}
+.textDefault {
+  @include cardText();
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+}
+.title {
+  @include cardText();
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 56px;
+  color: #000000;
+}
+.subtitle {
+  @include cardText();
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 28px;
+  color: #000000;
+}
+.description {
+  list-style-type: none;
+  padding: 0px;
+}
+@mixin weightStyle {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  right: 5%;
+  bottom: 5%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.weightStateDefault {
+  @include weightStyle(); 
+  background-image: url('../../assets/default/Oval.png');
+}
+.weightStateDefaultHover {
+  @include weightStyle(); 
+  background-image: url('../../assets/default-hover/Oval.png');
+}
+.weightStateSelected {
+  @include weightStyle(); 
+  background-image: url('../../assets/selected/Oval.png');
+}
+.weightStateSelectedHover {
+  @include weightStyle(); 
+  background-image: url('../../assets/selected-hover/Oval.png');
+}
+.weightStateDisabled {
+  @include weightStyle(); 
+  background-image: url('../../assets/disabled/Oval.png');
+}
+@mixin weightFont {
+  margin: 0px;
+  font-style: normal;
+  font-weight: 400;
+  padding-top: 5px;
+  line-height: 22px;
+  color: #FFFFFF;
+}
+.weightAmount {
+  @include weightFont();
+  font-size: 42px;
+}
+.weightType {
+  @include weightFont();
+  font-size: 20px;
+}
+
+@mixin footerStyle {
+  text-align: center;
+  font-size: 13px;
+}
+.footer {
+  @include footerStyle();
+}
+.footerDisabled {
+  @include footerStyle();
+  color: #FFFF66;
+}
+.link {
+  color: #22A7E9;
+  border-bottom: 1px dashed #22A7E9;
+  cursor: pointer;
+}
